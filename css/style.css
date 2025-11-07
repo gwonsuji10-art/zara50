@@ -1,0 +1,269 @@
+@import url('https://fonts.googleapis.com/css2?family=Poiret+One&display=swap');
+
+
+*{margin: 0; padding: 0; box-sizing: border-box;}
+ul, li{list-style: none;}
+a{text-decoration: none; color: #555;}
+body{
+    width: 100%;
+    min-width: 1400px;
+    height: 4000px;
+    font-family: "Poiret One";
+    background: #ddd;
+}
+
+/*로고*/
+h1{
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 5;
+}
+h1 img{
+    width: 300px; /* 원하는 크기로 조절 */
+    /* box-shadow: 5px 5px 3px #888; */
+}
+
+/*메뉴*/
+#navi{
+    position: fixed;
+    top: 50%; margin-top: -280px;
+    left: 60px;
+    display: flex;
+    gap: 25px;
+}
+#navi li{
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+    transition: .5s;
+    cursor: pointer;
+}
+#navi li:hover,
+#navi li.on{color: #888;}
+
+
+
+
+
+/*슬로건*/
+/* ========== ZARA 스타일 슬로건 (.txt) overwrite ========== */
+.txt {
+    display: none;
+    position: fixed;
+    top: 50%;
+    right: 60px;
+    transform: translateY(-50%);
+    text-align: right;
+    color: #111; /* 진한 검정 텍스트 */
+    line-height: 1.05;
+    letter-spacing: 2px;
+    pointer-events: none; /* 필요시 클릭 방지 (원하면 제거) */
+    font-size: 100px; /* ✅ 글씨 크기 설정 */
+}
+
+/* 작은 보조 숫자(주년) 스타일 */
+.txt span {
+    display: inline-block;
+    font-size: 110px;      /* 필요시 조절 */
+    font-weight: 400;
+    color: #c4c4c4;
+    letter-spacing: -3px;
+    margin-left: 12px;
+    vertical-align: middle;
+}
+
+/* 설명문 스타일 (em 태그) */
+.txt em {
+    display: inline-block; /* ✅ 한 줄로 표시 */
+    margin-top: 25px;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 16px;
+    color: #666;
+    letter-spacing: 1px; /* 자간 살짝 넓게 */
+    font-style: normal;
+    line-height: 1.6;
+}
+
+
+/* 데스크톱에서 너무 크면 조정(선택사항) */
+@media (max-width: 1600px) {
+    .txt span { font-size: 90px; }
+    .txt em   { font-size: 14px; max-width: 220px; }
+}
+
+/* 화면 비율에 맞춰 좀 더 유연하게: clamp 사용(선택사항) */
+.txt { font-size: clamp(20px, 3.5vw, 36px); }
+
+
+
+
+
+
+
+/*레이아웃*/
+section{
+    position: fixed;
+    top: 50%; margin-top: -250px;
+    left: 0;
+    width: 4600px;
+    height: 500px;
+}
+article{
+    position: relative;
+    top: 50%;
+    width: 180px;
+    height: 400px;
+    margin: 10px;
+    margin-top: -200px;
+    float: left;
+    background: #fff;
+    border-radius: 5px;
+    box-shadow: 3px 3px 3px #bbb;
+    overflow: hidden;
+    transition: .7s;
+}
+
+article h2{
+    position: absolute;
+    top: 300px; right: 0;
+    width: 100%;
+    height: 50px;
+    padding-left: 20px;
+    background: #111;
+    opacity: 0.4;
+    z-index: 2;
+    cursor: pointer;
+    transition: 0.5s;
+}
+article:hover h2{opacity: 0.8;}
+article h2 a{
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 3.5;
+    color: #fff;
+    letter-spacing: 2px;
+    transition: 0.5s;
+}
+
+article strong{
+    display: block;
+    position: absolute;
+    left: 0; top: 0;
+    width: 100%;
+    height: 300px;
+    opacity: 0.4;
+    overflow: hidden;
+    text-align: center;
+    transition: .5s;
+}
+
+article:hover strong{opacity: 1;}
+article strong img{
+    height: 300px;
+    width: auto;
+}
+
+article p{
+    position: absolute;
+    top: 50%; right: 0;
+    z-index: 1;
+    margin-top: 0;
+    width: 100%;
+    height: 0;
+    text-align: center;
+    overflow: hidden;
+    background: #fff;
+    opacity: 0;
+    transition: .8s;
+}
+article p img{
+    width: auto;
+    height: 100%;
+}
+
+article em{
+    position: absolute;
+    bottom: 50px;
+    right: -300px;
+    z-index: 2;
+    display: inline-block;
+    padding: 10px 20px;
+    background: #000;
+    color: #fff;
+    opacity: 0.8;
+    transition: 1s;
+}
+
+section span{
+    position: absolute;
+    top: 110px;
+    right: -300;
+    z-index: 3;
+    font-size: 20px;
+    color: #fff;
+    cursor: pointer;
+}
+
+/*클릭 시 변형된 모습*/
+article.on{
+    width: 780px;
+    height: 500px;
+    margin-top: -250px;
+}
+
+article.on h2{
+    top: 100px;
+    height: 100px;
+    opacity: 0.3;
+}
+article.on h2 a{font-size: 30px;}
+article.on strong{opacity: 0;}
+article.on p{
+    height: 500px;
+    margin-top: -250px;
+    opacity: 1;
+}
+
+article.on em{right: 20px;}
+article.on span{right: 20px;}
+
+
+
+
+
+
+
+.scroll-guide {
+    position: fixed;
+    bottom: 200px; /* 위치 위로 조절 가능 */
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    font-size: 17px;
+    color: #222;
+    font-weight: 500;
+    background: rgba(255, 255, 255, 0.8);
+    padding: 10px 25px 10px 20px;
+    border-radius: 30px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    letter-spacing: 0.5px;
+    font-family: "Poiret One";
+}
+
+.scroll-guide .arrow {
+    display: inline-block;
+    font-size: 20px;
+    color: #555;
+    animation: moveRight 1.5s infinite ease-in-out;
+}
+
+@keyframes moveRight {
+    0% { transform: translateX(0); opacity: 0.6; }
+    50% { transform: translateX(5px); opacity: 1; }
+    100% { transform: translateX(0); opacity: 0.6; }
+}
