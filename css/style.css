@@ -236,7 +236,7 @@ article.on span{right: 20px;}
 
 .scroll-guide {
     position: fixed;
-    bottom: 200px; /* 위치 위로 조절 가능 */
+    bottom: 130px; /* 위치 위로 조절 가능 */
     left: 50%;
     transform: translateX(-50%);
     text-align: center;
